@@ -41,9 +41,9 @@ public class ModelHatController : MonoBehaviour
 			kinectManager = KinectManager.Instance;
 			faceManager = FacetrackingManager.Instance;
 		}
-
-		// get user-id by user-index
-		long userId = kinectManager ? kinectManager.GetUserIdByIndex(playerIndex) : 0;
+        
+        // get user-id by user-index
+        long userId = kinectManager ? kinectManager.GetUserIdByIndex(playerIndex) : 0;
 
 		if(kinectManager && kinectManager.IsInitialized() && userId != 0 &&
 			faceManager && faceManager.IsTrackingFace(userId) && foregroundCamera)
@@ -81,7 +81,7 @@ public class ModelHatController : MonoBehaviour
 			}
 			
 			// model position
-			newPosition = kinectManager.GetJointPosColorOverlay(userId, (int)KinectInterop.JointType.Head, foregroundCamera, backgroundRect);
+			newPosition = kinectManager.GetJointPosColorOverlay(userId, (int)KinectInterop.JointType.SpineShoulder, foregroundCamera, backgroundRect);
 			if(newPosition == Vector3.zero)
 			{
 				// hide the model behind the camera
